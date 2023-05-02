@@ -1,1 +1,1 @@
-https://fullstack-hy-3-backend.fly.dev/api/persons
+https://fullstack-hy-3-backend.fly.dev

@@ -1,8 +1,10 @@
 const express = require('express')
 const morgan = require('morgan')
+const cors = require('cors')
 const app = express()
 
 app.use(express.json())
+app.use(cors())
 
 morgan.token('body', function (req, res) { return JSON.stringify(req.body) })
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms :body'))
@@ -33,7 +35,8 @@ let persons = [
 const personCount = persons.length
 
 const generateId = () => {
-    const newId = Math.random().toString().slice(2, 15)
+    const newId = Math.floor((1 + Math.random()) * 100000000)
+    console.log(newId)
     return newId
 }
 
@@ -94,7 +97,7 @@ app.get('/info', (req, res) => {
     )
 })
 
-const PORT = 3001
+const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
 })

@@ -10,7 +10,8 @@
     "build:ui": "rm -rf build && cd ../fullstack-hy/osa2/puhelinluettelo && npm run build && cp -r build ../../../fullstack-hy-3",
     "deploy": "fly deploy",
     "deploy:full": "npm run build:ui && npm run deploy",
-    "logs:prod": "fly logs"
+    "logs:prod": "fly logs",
+    "lint": "eslint ."
   },
   "author": "Katja Hinkkanen",
   "license": "MIT",
@@ -24,6 +25,7 @@
     "npm": "^9.6.7"
   },
   "devDependencies": {
+    "eslint": "^8.41.0",
     "nodemon": "^2.0.22"
   }
 }
